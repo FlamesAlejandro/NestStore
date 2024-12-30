@@ -9,6 +9,10 @@ import { ReviewsModule } from './reviews/reviews.module'
 import { NotificationsModule } from './notifications/notifications.module'
 import { AdminModule } from './admin/admin.module'
 import { ReportsModule } from './reports/reports.module'
+import { WishlistModule } from './wishlist/wishlist.module'
+import { LogsModule } from './logs/logs.module'
+import { RecommendationsModule } from './recommendations/recommendations.module'
+import { MessagesModule } from './messages/messages.module'
 
 @Module({
   imports: [
@@ -19,7 +23,11 @@ import { ReportsModule } from './reports/reports.module'
     ReviewsModule,
     NotificationsModule,
     AdminModule,
-    ReportsModule
+    ReportsModule,
+    WishlistModule,
+    LogsModule,
+    RecommendationsModule,
+    MessagesModule
   ],
   controllers: [AppController],
   providers: [AppService]
