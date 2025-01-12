@@ -38,8 +38,37 @@ services:
     restart: always
     ports:
       - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
     volumes:
       - mongo_data:/data/db
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: neststore_phpmyadmin
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: password
+
+  mongo-express:
+    image: mongo-express
+    container_name: neststore_mongo_express
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin123
+      ME_CONFIG_MONGODB_SERVER: mongo
 
 volumes:
   mysql_data:
