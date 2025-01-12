@@ -12,25 +12,21 @@ services:
       - DB_USERNAME=root
       - DB_PASSWORD=password
       - DB_NAME=digital_store
-      - MONGO_URI=mongodb://mongo:27017/digital_store
       - NODE_ENV=development
       - DB_SYNC=true
     depends_on:
       - mysql
-      - mongo
     volumes:
       - .:/app
       - /app/node_modules
 
   mysql:
     image: mysql:8
-    container_name: mysql
+    container_name: neststore_mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: digital_store
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
     volumes:
@@ -38,7 +34,7 @@ services:
 
   mongo:
     image: mongo
-    container_name: mongo
+    container_name: neststore_mongo
     restart: always
     ports:
       - "27017:27017"
