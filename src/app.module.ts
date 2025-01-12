@@ -16,11 +16,16 @@ import { RecommendationsModule } from './recommendations/recommendations.module'
 import { MessagesModule } from './messages/messages.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { typeOrmConfig } from './config/typeorm.config'
+import { MongooseModule } from '@nestjs/mongoose'
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env'
+    }),
     TypeOrmModule.forRoot(typeOrmConfig),
+    MongooseModule.forRoot(process.env.MONGO_URI),
     UsersModule,
     ProductsModule,
     CartModule,
