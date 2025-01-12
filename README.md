@@ -35,6 +35,9 @@ El backend se organiza en módulos para una fácil escalabilidad y mantenimiento
 Patrones de Diseño Utilizados
 CQRS: Separación de comandos (escritura) y consultas (lectura).
 Patrón Repositorio: Abstracción de la interacción con las bases de datos (MySQL y MongoDB).
+Chain of Responsibility.
+Builder.
+Strategy.
 Factory Pattern: Servicios intercambiables como MinIO o S3.
 Observer Pattern: Notificaciones de eventos importantes como actualización de stock.
 🛠️ Tecnologías y Herramientas
