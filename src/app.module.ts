@@ -17,6 +17,7 @@ import { MessagesModule } from './messages/messages.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { typeOrmConfig } from './config/typeorm.config'
 import { MongooseModule } from '@nestjs/mongoose'
+import { RedisModule } from './redis/redis.module'
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { MongooseModule } from '@nestjs/mongoose'
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
     MongooseModule.forRoot(process.env.MONGO_URI),
+    RedisModule,
     UsersModule,
     ProductsModule,
     CartModule,
